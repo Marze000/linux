@@ -11,7 +11,6 @@ void sigcb(int signo)
 
 int main()
 {
-  //
   //signal(SIGINT,sigcb);
   //signal(SIGQUIT,sigcb);
 
@@ -34,9 +33,13 @@ int main()
   //signum:信号编号    handler :信号处理方式
   //                          (1)SIG_DFL  默认处理方式
   //                          (2)SIG_IGN  忽略处理方式
-  //        typedef void (*sighandler_t)(int):用户自定义信号回调函数类型
+  //typedef void (*sighandler_t)(int):用户自定义信号回调函数类型
   
-  //signal(SIGINT,SIG_IGN);
+
+  //这条语句的意思就是，如果程序运行起来
+  //输入信号编号的时候，操作系统忽略此信号
+  signal(SIGINT,SIG_IGN);
+  
   //sigaction(int signum,const struct sigaction* act,struct sigaction ) ;
   
   while(1)
